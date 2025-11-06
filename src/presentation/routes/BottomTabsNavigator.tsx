@@ -4,6 +4,7 @@ import { globalColors, globalStyles } from '../theme/theme';
 import { Text } from 'react-native-gesture-handler';
 import { TopTabsNavigator } from './TopTabsNavigator';
 import { StackNavigator } from './StackNavigator';
+import { IonIcon } from '../components/shared/IonIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -31,26 +32,29 @@ export const BottomTabNavigator = () => {
         name="Tab1"
         options={{
           title: 'Tab 1',
-          tabBarIcon: ({color}) => <Text style={{color}}>Tab </Text>,
+          tabBarIcon: ({color}) => <IonIcon name="chatbox-outline" color={color} />,
         }}
         component={Tab1Screen}
       />
+
+       <Tab.Screen
+        name="Home"
+        options={{
+          title: 'Tab 3',
+          tabBarIcon: ({color}) => <IonIcon name="home" color={color} />,
+        }}
+        component={StackNavigator}
+      />
+
       <Tab.Screen
         name="Tab2"
         options={{
           title: 'Tab 2',
-          tabBarIcon: ({color}) => <Text style={{color}}>Tab </Text>,
+          tabBarIcon: ({color}) => <IonIcon name='person-circle-outline' color={color} />,
         }}
         component={TopTabsNavigator}
       />
-      <Tab.Screen
-        name="Tab3"
-        options={{
-          title: 'Tab 3',
-          tabBarIcon: ({color}) => <Text style={{color}}>Tab </Text>,
-        }}
-        component={StackNavigator}
-      />
+     
     </Tab.Navigator>
   );
 };

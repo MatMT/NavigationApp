@@ -1,6 +1,8 @@
 import { Pressable, Text, View } from 'react-native';
 import { DrawerActions, useNavigation } from '@react-navigation/native';
 import { useEffect } from 'react';
+import { IonIcon } from './IonIcon';
+import { globalColors } from '../../theme/theme';
 
 export const HamburgerMenu = () => {
   const navigation = useNavigation();
@@ -13,7 +15,7 @@ export const HamburgerMenu = () => {
             navigation.dispatch(DrawerActions.toggleDrawer);
           }}
         >
-          <Text>Menú</Text>
+          <IonIcon name="menu-outline" color={globalColors.primary} />
         </Pressable>
       ),
     });
